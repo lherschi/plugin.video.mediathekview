@@ -34,14 +34,14 @@ DROP TABLE IF EXISTS `channel`;
 DROP TABLE IF EXISTS film;
 CREATE TABLE film (
     idhash         char(32)        NOT NULL,
-    dtCreated      integer(11)     NOT NULL,
+    dtCreated      decimal(10)     NOT NULL,
     touched        smallint(1)     NOT NULL,
     channel        varchar(32)     NOT NULL,
     showid         char(8)         NOT NULL,
     showname       varchar(128)    NOT NULL,
     title          varchar(128)    NOT NULL,
-    aired          integer(11)     NOT NULL,
-    duration       integer(11)     NOT NULL,
+    aired          decimal(10)     NOT NULL,
+    duration       decimal(10)     NOT NULL,
     description    varchar(1024)   NULL,
     url_sub        varchar(2048)    NULL,
     url_video      varchar(2048)    NULL,
