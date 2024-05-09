@@ -237,7 +237,7 @@ docker build --no-cache -t mediathekview-kodi-db .
 | MYSQL_PASSWORD      | mediathekview       | Passwort für MYSQL_USER (minimum 4 Zeichen); sollte in ein sicheres Passwort geändert werden |
 | MYSQL_ROOT_PASSWORD | mediathekview_root  | Root Passwort für die MYSQL Datenbank (minimal 4 Zeichen); sollte in ein sicheres Passwort geändert werden|
 | CRON_TIMESPEC       | 0 4-22/1 * * *      | Zeitausdruck im Cron-Format, der angibt wann die Datenbank per `mvupdate3` aktualisiert werden soll (Default: zu jeder vollen Stunde zwischen 4 und 22 Uhr). Ein Generator für diese Ausdrücke findet sich bspw. hier: https://crontab.guru/| 
-| RUN_ON_STARTUP      | no		    | wenn 'yes', damm wird `mvupdate3` bei starten des Containers ausgeführt
+| RUN_ON_STARTUP      | no		    | wenn 'yes', dann wird `mvupdate3` bei starten des Containers ausgeführt
 
 
 Um mit Kodi auf die Datenbank zugreifen zu können, muss der `Port 3306` nach außen geleitet werden. Bei mehereren Containern mit MYSQL Datenbank empfiehlt es sich den MYSQL-Port 3306 auf einen freien Port umzuleiten (z.B.: `-p 49153:3306`). *Achtung:* Innerhalb des Containers gilt weiterhin der Port 3306 (z.B. für den Aufruf von `mvupdate3`). Außerhalb bzw. in Kodi muss dann der konfigurierte Port (im Beispiel 49153) verwendet werden.
