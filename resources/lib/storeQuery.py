@@ -480,10 +480,12 @@ class StoreQuery(object):
             status['filmUpdate'] = result[0][3]
             status['version'] = result[0][4]
             #
-            result = self.execute('SELECT count(distinct(channel)),count(distinct(showid)),count(*) FROM film')
+            result = self.execute('SELECT count(distinct(channel)) FROM film')
             status['chn'] = result[0][0]
-            status['shw'] = result[0][1]
-            status['mov'] = result[0][2]
+            result = self.execute('SELECT count(distinct(showid)) FROM film')
+            status['shw'] = result[0][0]
+            result = self.execute('SELECT count(*) FROM film')
+            status['mov'] = result[0][0]
             #
             self.settings.setDatabaseStatus(status['status'])
             self.settings.setLastUpdate(status['lastUpdate'])
